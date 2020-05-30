@@ -32,7 +32,7 @@
 //   request.send();
 //}
 
-//form.addEventListener('submit', (e) => chamarRequisicao(e));
+form.addEventListener('submit', (e) => chamarRequisicao(e));
 
 //**** TRANSFORMAR A REQUISIÇÃO XMTHTTPREQUEST EM FETCH****
 const form = document.getElementById('pkmForm');
@@ -53,7 +53,30 @@ const chamarRequisicao = (e) => { // aqui estamos chamando uma requisicao
             pkmPlaceholder.appendChild(p).appendChild(img);
             console.log('dado', dado)
         })
+//***correção MEL***
 
+// const chamarRequisicao = (e) => {
+//   e.preventDefault();
+//   pkmPlaceholder.innerHTML = "";
+//   const pkmNome = input.value.toLowerCase();
+//   const request = new XMLHttpRequest();
+  
+//   request.open("GET", `https://pokeapi.co/api/v2/pokemon/${pkmNome}/`, true);
+  
+//   request.addEventListener("readystatechange", function () {
+//     if (request.readyState == 4 && request.status == 200) {
+//       const data = JSON.parse(request.response);
+//       const p = document.createElement('p');
+//       const img = document.createElement('img');
+
+//       p.textContent = data.species.name;
+//       img.setAttribute('src', `https://pokeres.bastionbot.org/images/pokemon/${data.id}.png`)
+
+//       pkmPlaceholder.appendChild(p).appendChild(img);
+//     }
+//   })
+  
+  request.send();
 }
 
 form.addEventListener('submit', (e) => chamarRequisicao(e));
